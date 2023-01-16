@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/home" element={<Home />} />
           <Route path="/api/recipe/:recipeId" element={<RecipeDetail />} />
           <Route path="/form" element={<Form />} />
         </Routes>
