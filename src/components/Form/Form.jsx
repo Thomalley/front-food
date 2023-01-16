@@ -1,3 +1,4 @@
+/* eslint-disable valid-typeof */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -45,12 +46,12 @@ export default function Form() {
     steps: "",
     diets: []
   });
-  
+
   useEffect(() => {
     dispatch(getDiets());
   }, [dispatch]);
 
-  
+
   const [dietas, setDietas] = useState([])
   const handleSelectDiets = (e) => {
     // console.log(e.target)
@@ -62,19 +63,19 @@ export default function Form() {
       setInput({ ...input, diets: [...input.diets, parseInt(e.target.value)] });
     }
   };
-  
+
   const [errors, setErrors] = useState({});
-  
+
   // useEffect(() => {
   //   console.log(Object.values(input))
   // })
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!input.title){
+    if (!input.title) {
       e.preventDefault();
       alert("Empty form, please complete");
-    } else if (Object.keys(errors).length !== 0){
+    } else if (Object.keys(errors).length !== 0) {
       e.preventDefault();
       alert("Please complete all the fields");
     } else if (Object.keys(errors).length === 0) {
@@ -90,8 +91,8 @@ export default function Form() {
       window.location.href = "/home";
     };
   }
-    
-    
+
+
   const handleChange = (e) => {
     setInput({
       ...input,
@@ -108,7 +109,7 @@ export default function Form() {
   function handleDelete(e) {
     let dietsFiltered = dietas?.filter((el) => el.name !== e.name);
     console.log(e)
-    console.log(dietsFiltered) 
+    console.log(dietsFiltered)
 
     setInput({
       ...input,
@@ -190,7 +191,7 @@ export default function Form() {
               onChange={(e) => handleSelectDiets(e)}
             >
               <option label={"Select diet"} disabled selected></option>
-              {dietsState && typeof(dietsState[0]) !== "array"?dietsState.map((diet) => {
+              {dietsState && typeof (dietsState[0]) !== "array" ? dietsState.map((diet) => {
                 return (
                   <option
                     key={diet.id}
@@ -200,7 +201,7 @@ export default function Form() {
                     {diet.name}
                   </option>
                 );
-              }): false}
+              }) : false}
             </select>
 
             <div className={estilos.inputGroup}>

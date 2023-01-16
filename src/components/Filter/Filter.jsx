@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,9 +50,9 @@ export const Filter = () => {
     console.log("siltered recipes", filteredRecipes);
   };
 
-  useEffect(()=>{
-    if(temporal.length>0){
-    dispatch(changePage(pageFiltered[0]));
+  useEffect(() => {
+    if (temporal.length > 0) {
+      dispatch(changePage(pageFiltered[0]));
     }
   }, [temporal])
 
@@ -76,12 +77,12 @@ export const Filter = () => {
             Filter by diet
           </option>
           {diets?.map((e) => {
-              return (
-                <option key={e.id} value={e.name} name={e.name}>
-                  {e.name}
-                </option>
-              );
-            })}
+            return (
+              <option key={e.id} value={e.name} name={e.name}>
+                {e.name}
+              </option>
+            );
+          })}
         </select>
       </div>
     </div>

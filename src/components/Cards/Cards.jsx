@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -23,8 +24,8 @@ export const Cards = () => {
     if (!error) {
       dispatch(getRecipes());
     }
-  }, [dispatch]);
-  
+  }, []);
+
   useEffect(() => {
     console.log("currentItems", currentItems)
   })
@@ -37,36 +38,36 @@ export const Cards = () => {
   return (
     <div className={estilos.contenedorTotal}>
       {loading ? (
-       <Loading />
-      ) : 
-      currentItems[0] ?
-        currentItems.map((e) => {
-          return (
-            <div>
-              <div className={estilos.contenedorTarjeta}>
-                {e && (
-                  <Link to={`/api/recipe/${e.id}`} className={estilos.link}>
-                    <RecipeCard
-                    id={e.id}
-                    image={e.image}
-                    title={e.title}
-                    dishType={e.dishType}
-                    diets={e.diets}
-                    score={e.spoonacularScore}
-                    healthScore={e.healthScore}
-                    />
-                  </Link>
-                )}
+        <Loading />
+      ) :
+        currentItems[0] ?
+          currentItems.map((e) => {
+            return (
+              <div>
+                <div className={estilos.contenedorTarjeta}>
+                  {e && (
+                    <Link to={`/api/recipe/${e.id}`} className={estilos.link}>
+                      <RecipeCard
+                        id={e.id}
+                        image={e.image}
+                        title={e.title}
+                        dishType={e.dishType}
+                        diets={e.diets}
+                        score={e.spoonacularScore}
+                        healthScore={e.healthScore}
+                      />
+                    </Link>
+                  )}
+                </div>
               </div>
+            );
+          })
+          : (
+            <div className={estilos.noCoincidences}>
+              <p className={estilos.p}>No coincidences found :( </p>
+              <img className={estilos.gif} src={gif} alt="recipe not found" />
             </div>
-          );
-        })
-        : (
-          <div className={estilos.noCoincidences}>
-            <p className={estilos.p}>No coincidences found :( </p>
-            <img className={estilos.gif} src={gif} alt="recipe not found" />
-          </div>
-        )}
+          )}
     </div>
   );
 };
