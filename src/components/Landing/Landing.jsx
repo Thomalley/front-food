@@ -7,7 +7,7 @@ export default function Landing() {
     <section className={estilos.full}>
       <div className={estilos.fullInner}>
         <div className={estilos.content}>
-          <h1>Welcome</h1>
+          <h1>Hola mi noia hermosa</h1>
           <Link to='/home' className={estilos.btn}>LET'S COOK!</Link>
         </div>
       </div>
