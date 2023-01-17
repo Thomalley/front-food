@@ -7,12 +7,13 @@ import { RecipeDetail } from "./components/RecipeDetail/RecipeDetail";
 import Form from "./components/Form/Form";
 
 function App() {
+  console.log(window.location)
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Landing />} />
-          <Route exact path="/home" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/api/recipe/:recipeId" element={<RecipeDetail />} />
           <Route path="/form" element={<Form />} />
         </Routes>
