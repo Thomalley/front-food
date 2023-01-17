@@ -3,7 +3,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import estilos from './Navbar.module.css';
 import { Filter } from '../Filter/Filter.jsx';
 import { Sort } from '../Sort/Sort.jsx';
-import useHistory from 'react-router';
+import { useHistory } from 'react-router';
 export default function Nav() {
   const history = useHistory();
   return (
