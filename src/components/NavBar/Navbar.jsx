@@ -8,7 +8,7 @@ export default function Nav() {
   return (
     <nav className={estilos.cuerpoNav}>
       <div className={estilos.linkContainer}>
-        <Link to='/' className={estilos.link} onClick={() => window.location.reload()}>
+        <Link to='/' className={estilos.link}>
           <span>Back</span>
         </Link>
         <Link to='/form' className={estilos.link}>

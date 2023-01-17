@@ -34,7 +34,6 @@ export const Filter = () => {
   const handleSelect = (e) => {
     dispatch(filter(e.target.value));
     setTemporal(e.target.value);
-    // console.log(e.target.value);
     if (temporal) {
       dispatch(changePage(pageFiltered[0]));
     }
@@ -43,11 +42,6 @@ export const Filter = () => {
   const handleSelectDiet = (e) => {
     dispatch(filterByDiet(e.target.value));
     setTemporal(e.target.value);
-    // if (temporal) {
-    //   dispatch(changePage(pageFiltered[0]));
-    // }
-    // console.log(e.target.value);
-    console.log("siltered recipes", filteredRecipes);
   };
 
   useEffect(() => {

@@ -26,9 +26,6 @@ export const Cards = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("currentItems", currentItems)
-  })
 
   let loading = true;
   if (recipe?.length !== 0) {

@@ -11,9 +11,7 @@ export const RecipeDetail = () => {
 
   const dispatch = useDispatch();
   const params = useParams();
-  // console.log("DOY PARAMS ID", params.recipeId)
   const recipe = useSelector((state) => state.recipeById);
-  console.log(recipe)
 
   useEffect(() => {
     dispatch(getRecipeById(params.recipeId));

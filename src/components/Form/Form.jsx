@@ -54,7 +54,6 @@ export default function Form() {
 
   const [dietas, setDietas] = useState([])
   const handleSelectDiets = (e) => {
-    // console.log(e.target)
     e.preventDefault();
     if (input.diets?.includes(parseInt(e.target.value))) {
       alert("Diet's already been selected");
@@ -65,10 +64,6 @@ export default function Form() {
   };
 
   const [errors, setErrors] = useState({});
-
-  // useEffect(() => {
-  //   console.log(Object.values(input))
-  // })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,8 +103,6 @@ export default function Form() {
 
   function handleDelete(e) {
     let dietsFiltered = dietas?.filter((el) => el.name !== e.name);
-    console.log(e)
-    console.log(dietsFiltered)
 
     setInput({
       ...input,
