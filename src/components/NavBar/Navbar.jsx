@@ -1,18 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import estilos from './Navbar.module.css';
 import { Filter } from '../Filter/Filter.jsx';
 import { Sort } from '../Sort/Sort.jsx';
-import { useHistory } from 'react-router';
+
+
 export default function Nav() {
-  const history = useHistory();
+  const navigate = useNavigate()
   return (
     <nav className={estilos.cuerpoNav}>
       <div className={estilos.linkContainer}>
         {/* <Link to='/' className={estilos.link}>
           <span>Back</span>
         </Link> */}
-        <button className={estilos.link} onClick={() => history.push("/")}></button>
+        <button className={estilos.link} onClick={() => navigate("/")}></button>
         <Link to='/form' className={estilos.link}>
           <span>Create your recipe</span>
         </Link>
