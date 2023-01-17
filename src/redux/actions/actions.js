@@ -15,7 +15,7 @@ export const SORT = "SORT";
 export function getRecipes() {
   return function (dispatch) {
     axios
-      .get("api/recipe")
+      .get("/api/recipe")
       .then((recipe) => dispatch({ type: "GET_RECIPES", payload: recipe.data }))
       .catch((err) => console.log(err));
   };
@@ -24,7 +24,7 @@ export function getRecipes() {
 export function getDiets() {
   return function (dispatch) {
     axios
-      .get("api/typeOfDiet")
+      .get("/api/typeOfDiet")
       .then((diet) => dispatch({ type: "GET_DIETS", payload: diet.data }))
       .catch((err) => console.log(err));
   };
@@ -33,7 +33,7 @@ export function getDiets() {
 export function getRecipeByName(name) {
   return function (dispatch) {
     axios
-      .get(`api/recipe?name=${name}`)
+      .get(`/api/recipe?name=${name}`)
       .then((recipe) =>
         dispatch({ type: "GET_RECIPE_NAME", payload: recipe.data })
       )
@@ -44,7 +44,7 @@ export function getRecipeByName(name) {
 export function getRecipeById(id) {
   return function (dispatch) {
     axios
-      .get(`api/recipe/${id}`)
+      .get(`/api/recipe/${id}`)
       .then((recipe) =>
         dispatch({ type: "GET_RECIPE_ID", payload: recipe.data })
       )
@@ -57,7 +57,7 @@ export function createRecipe(payload) {
     try {
       const newRecipe = await axios({
         method: "post",
-        url: "api/recipe",
+        url: "/api/recipe",
         data: {
           title: payload.title,
           summary: payload.summary,
