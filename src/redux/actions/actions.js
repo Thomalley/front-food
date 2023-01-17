@@ -6,16 +6,16 @@ export const GET_RECIPE_NAME = "GET_RECIPE_NAME";
 export const GET_RECIPE_ID = "GET_RECIPE_ID";
 export const CREATE_RECIPE = "CREATE_RECIPE";
 export const CHANGE_PAGE = "CHANGE_PAGE";
-export const FILTER = "FILTER"; 
-export const FILTER_DIET = "FILTER_DIET"; 
-export const SORT = "SORT"; 
+export const FILTER = "FILTER";
+export const FILTER_DIET = "FILTER_DIET";
+export const SORT = "SORT";
 
 
 
 export function getRecipes() {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/api/recipe")
+      .get("api/recipe")
       .then((recipe) => dispatch({ type: "GET_RECIPES", payload: recipe.data }))
       .catch((err) => console.log(err));
   };
@@ -24,7 +24,7 @@ export function getRecipes() {
 export function getDiets() {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/api/typeOfDiet")
+      .get("api/typeOfDiet")
       .then((diet) => dispatch({ type: "GET_DIETS", payload: diet.data }))
       .catch((err) => console.log(err));
   };
@@ -33,7 +33,7 @@ export function getDiets() {
 export function getRecipeByName(name) {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/api/recipe?name=${name}`)
+      .get(`api/recipe?name=${name}`)
       .then((recipe) =>
         dispatch({ type: "GET_RECIPE_NAME", payload: recipe.data })
       )
@@ -44,7 +44,7 @@ export function getRecipeByName(name) {
 export function getRecipeById(id) {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/api/recipe/${id}`)
+      .get(`api/recipe/${id}`)
       .then((recipe) =>
         dispatch({ type: "GET_RECIPE_ID", payload: recipe.data })
       )
@@ -57,7 +57,7 @@ export function createRecipe(payload) {
     try {
       const newRecipe = await axios({
         method: "post",
-        url: "http://localhost:3001/api/recipe",
+        url: "api/recipe",
         data: {
           title: payload.title,
           summary: payload.summary,
@@ -85,21 +85,21 @@ export function changePage(page) {
   };
 }
 
-export function filter(filtro){
+export function filter(filtro) {
   return {
     type: "FILTER",
     payload: filtro
   };
 }
 
-export function filterByDiet(diet){
+export function filterByDiet(diet) {
   return {
     type: "FILTER_DIET",
     payload: diet
   };
 }
 
-export function sort(order){
+export function sort(order) {
   return {
     type: "SORT",
     payload: order

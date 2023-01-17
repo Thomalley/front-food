@@ -5,6 +5,7 @@ import Landing from "./components/Landing/Landing";
 import { Home } from "./components/Home/Home";
 import { RecipeDetail } from "./components/RecipeDetail/RecipeDetail";
 import Form from "./components/Form/Form";
+
 function App() {
   return (
     <BrowserRouter>
